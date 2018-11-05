@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-9-30: Created.
+-->
+<svg>
+<metadata>
+Created by iconfont
+</metadata>
+<defs>
+
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    ascent="896"
+    descent="-128"
+  />
+    <missing-glyph />
+    
+    <glyph glyph-name="zuojiantou" unicode="&#58880;" d="M767.7 415.1H207.1l217.7 217.7c12.3 12.3 12.3 32.4 0 44.7l-0.7 0.7c-12.3 12.3-32.4 12.3-44.7-0.1L107 405.7c-12.3-12.3-12.3-32.4 0-44.7l0.6-0.7c0.1 0 0.2-0.1 0.2-0.1l271.1-271.1c12.5-12.5 32.9-12.5 45.4 0s12.5 32.9 0 45.4L206.7 352.1h561c17.3 0 31.5 14.2 31.5 31.5s-14.2 31.5-31.5 31.5zM864.1 383.4a31.8 31.7 0 1 1 63.6 0 31.8 31.7 0 1 1-63.6 0Z"  horiz-adv-x="1024" />
+
+    
+
+
+  </font>
+</defs></svg>
