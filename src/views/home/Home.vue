@@ -3,15 +3,15 @@
     <TopBar />
     <div class="home-item bdc">
       <span class="title">不动产业务</span>
-      <span class="text"><i class="count-icon"></i>条待审批</span>
+      <span class="text"><i class="count-icon">{{bdcCount}}</i>条待审批</span>
     </div>
     <div class="home-item zhsw">
       <span class="title">综合事务</span>
-      <span class="text"><i class="count-icon"></i>条待审批</span>
+      <span class="text"><i class="count-icon">{{zhswCount}}</i>条待审批</span>
     </div>
     <div class="home-item qclc">
       <span class="title">起草流程</span>
-      <span class="text"><i class="count-icon"></i>条待审批</span>
+      <span class="text"><i class="add-icon"></i>条待审批</span>
     </div>
   </div>
 </template>
@@ -19,13 +19,33 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
+import axios from 'axios';
 import TopBar from '@/components/TopBar';
 export default {
   name: 'home',
   components: {
     TopBar
+  },
+  data() {
+    return {
+      bdcCount: 0,
+      zhswCount: 0
+    }
+  },
+  mounted() {
+    this.getCount();
+  },
+  methods: {
+    async getCount () {
+      const [bdcCont, zhswCount] = await Promise.all([
+        axios.get('/service/fnmobile/bdcwaittask/getCount'),
+        axios.get('/service/fnmobile/oawaittask/getCount')
+      ])
+      console.log(bdcCont, zhswCount);
+    }
   }
-}
+};
+
 </script>
 
 <style lang="stylus" scoped>
@@ -39,7 +59,8 @@ export default {
       justify-content: space-between
       box-sizing: border-box
       padding: 0 .32rem
-      margin: .3rem 0  
+      margin: .3rem 0
+      position: relative
       box-shadow: 0 0 .04rem 0 rgba(255,155,155,0.50)
       border-radius: .1rem
       color: #fff
@@ -54,5 +75,23 @@ export default {
       .text
         flex: 1
         text-align: right
+        .count-icon
+          position: absolute
+          right: 1.44rem
+          top: 50%
+          transform: translate(0, -50%)
+          font-style: normal
+          border-radius: 0.26rem
+          font-size: 16px
+          height: .42rem
+          line-height: .42rem
+          padding: 0 0.12rem
+          margin-right: .16rem
+          text-align: center
+          border: 1px solid #fff
+          white-space: nowrap
+          background-color: #fff
+          color: #FE8F97
+          
 </style>
 

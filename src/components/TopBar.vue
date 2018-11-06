@@ -8,7 +8,7 @@
 <script>
 export default {
   name: 'TopBar'
-}
+};
 </script>
 
 <style lang="stylus" scoped>
