@@ -30,7 +30,7 @@ export default {
     return {
       bdcCount: 0,
       zhswCount: 0
-    }
+    };
   },
   mounted() {
     this.getCount();
@@ -40,7 +40,7 @@ export default {
       const [bdcCont, zhswCount] = await Promise.all([
         axios.get('/service/fnmobile/bdcwaittask/getCount'),
         axios.get('/service/fnmobile/oawaittask/getCount')
-      ])
+      ]);
       console.log(bdcCont, zhswCount);
     }
   }

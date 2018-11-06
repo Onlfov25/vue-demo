@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "fastclick": "^1.0.6",
+    "qs": "^6.5.2",
     "vue": "^2.5.17",
     "vue-lazyload": "^1.2.6",
     "vue-router": "^3.0.1",
@@ -18,9 +19,11 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.4",
     "@vue/cli-plugin-eslint": "^3.0.4",
-    "@vue/cli-service": "^3.0.4",
+    "@vue/cli-service": "^3.1.3",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-vue": "^5.0.0-0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
@@ -29,11 +32,13 @@
   "eslintConfig": {
     "root": true,
     "env": {
+      "browser": true,
+      "es6": true,
       "node": true
     },
     "extends": [
       "plugin:vue/essential",
-      "eslint:recommended"
+      "eslint:airbnb"
     ],
     "rules": {
       "linebreak-style": [
@@ -66,7 +71,8 @@
         2
       ],
       "no-cond-assign": 2,
-      "no-console": 2
+      "no-console": 2,
+      "no-trailing-spaces": "error"
     },
     "parserOptions": {
       "parser": "babel-eslint"
