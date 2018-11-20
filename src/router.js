@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/home/Home.vue';
+import Qclc from './views/qclc/Qclc.vue';
 
 Vue.use(Router);
 
@@ -12,6 +13,11 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/qclc',
+      name: 'qclc',
+      component: Qclc
     },
     {
       path: '/about',
@@ -26,8 +32,7 @@ export default new Router({
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition;
-    } else {
-      return { x: 0, y: 0 };
     }
+    return { x: 0, y: 0 };
   }
 });

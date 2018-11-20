@@ -1,26 +1,29 @@
 <template>
   <div class="home">
     <TopBar />
-    <div class="home-item bdc">
+    <div class="home-item bdc" @click="countCount">
       <span class="title">不动产业务</span>
       <span class="text"><i class="count-icon">{{bdcCount}}</i>条待审批</span>
     </div>
-    <div class="home-item zhsw">
+    <div class="home-item zhsw" @click="getCount">
       <span class="title">综合事务</span>
       <span class="text"><i class="count-icon">{{zhswCount}}</i>条待审批</span>
     </div>
-    <div class="home-item qclc">
-      <span class="title">起草流程</span>
-      <span class="text"><i class="add-icon"></i>条待审批</span>
-    </div>
+    <router-link :to="{ path: 'qclc', query: { name: 'zhangsan' } }">
+      <div class="home-item qclc">
+        <span class="title">{{sum}}起草流程</span>
+        <span class="text"><i class="add-icon"></i>条待审批</span>
+      </div>
+    </router-link>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
+import { mapState, mapMutations, mapActions, mapGetters} from 'vuex';
 import axios from 'axios';
-import TopBar from '@/components/TopBar';
+import TopBar from '@/common/TopBar';
 export default {
   name: 'home',
   components: {
@@ -28,21 +31,38 @@ export default {
   },
   data() {
     return {
-      bdcCount: 0,
-      zhswCount: 0
-    };
+      // bdcCount: 0,
+      // zhswCount: 0
+      a: 1
+    }
+  },
+  computed: {
+    hello() {
+      return 'hello worlh好';
+    },
+    ...mapState({
+     bdcCount: state => state.bdcCount,
+      zhswCount: 'zhswCount'
+    }),
+    ...mapGetters({
+      sum: 'sum'
+    })
   },
   mounted() {
-    this.getCount();
+    // this.getCount();
   },
+
   methods: {
-    async getCount () {
-      const [bdcCont, zhswCount] = await Promise.all([
-        axios.get('/service/fnmobile/bdcwaittask/getCount'),
-        axios.get('/service/fnmobile/oawaittask/getCount')
-      ]);
-      console.log(bdcCont, zhswCount);
-    }
+    // async getCount () {
+    //   console.log(bdcCont, zhswCount);
+    // },
+    // ...mapMutations({
+    //   countCount: 'countCount'
+    // }),
+    countCount: store.commit('countCount'),
+    ...mapActions({
+      getCount: 'getCount'
+    })
   }
 };
 
@@ -70,7 +90,7 @@ export default {
         background-image: linear-gradient(-269deg, #0CC1EB 0%, #16ECB1 100%)
       &.qclc
         background-image: linear-gradient(-270deg, #9095FE 0%, #ED98F2 100%)
-      .title 
+      .title
         width: 1.6rem
       .text
         flex: 1
@@ -92,6 +112,6 @@ export default {
           white-space: nowrap
           background-color: #fff
           color: #FE8F97
-          
+
 </style>
 
