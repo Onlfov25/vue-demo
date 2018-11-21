@@ -1,17 +1,17 @@
 <template>
   <div class="home">
     <TopBar />
-    <div class="home-item bdc" @click="countCount">
+    <div class="home-item bdc" >
       <span class="title">不动产业务</span>
       <span class="text"><i class="count-icon">{{bdcCount}}</i>条待审批</span>
     </div>
-    <div class="home-item zhsw" @click="getCount">
+    <div class="home-item zhsw" >
       <span class="title">综合事务</span>
       <span class="text"><i class="count-icon">{{zhswCount}}</i>条待审批</span>
     </div>
-    <router-link :to="{ path: 'qclc', query: { name: 'zhangsan' } }">
+    <router-link :to="{ path: 'zhswsq', query: { title: '发起流程' } }">
       <div class="home-item qclc">
-        <span class="title">{{sum}}起草流程</span>
+        <span class="title">起草流程</span>
         <span class="text"><i class="add-icon"></i>条待审批</span>
       </div>
     </router-link>
@@ -31,22 +31,12 @@ export default {
   },
   data() {
     return {
-      // bdcCount: 0,
-      // zhswCount: 0
-      a: 1
+      bdcCount: 0,
+      zhswCount: 0
     }
   },
   computed: {
-    hello() {
-      return 'hello worlh好';
-    },
-    ...mapState({
-     bdcCount: state => state.bdcCount,
-      zhswCount: 'zhswCount'
-    }),
-    ...mapGetters({
-      sum: 'sum'
-    })
+
   },
   mounted() {
     // this.getCount();
@@ -59,10 +49,8 @@ export default {
     // ...mapMutations({
     //   countCount: 'countCount'
     // }),
-    countCount: store.commit('countCount'),
-    ...mapActions({
-      getCount: 'getCount'
-    })
+    // countCount: (store) => store.commit('countCount'),
+
   }
 };
 

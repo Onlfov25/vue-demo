@@ -1,13 +1,24 @@
 <template>
   <div class="top-bar-view">
-    <i class="iconfont arrow">&#xe600;</i>
-    <span>阜宁县不动产移动端</span>
+    <i class="iconfont arrow" @click="routeback">&#xe600;</i>
+     <span>{{title}}</span>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'TopBar'
+  name: 'TopBar',
+  props: {
+    title: {
+      type: String,
+      default: '阜宁不动产移动端'
+    }
+  },
+  methods: {
+    routeback() {
+      this.$router.go(-1);
+    }
+  }
 };
 </script>
 

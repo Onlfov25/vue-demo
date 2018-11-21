@@ -14,21 +14,21 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    countCount (state) {
-      state.bdcCount += 1
+    countCount (state, payload) {
+      state.bdcCount += payload.num
     },
-    reactActon (state) {
-      state.zhswCount += 5
+    reactActon (state, payload) {
+      state.zhswCount += payload.num
     }
   },
   actions: {
-    getCount ({commit}) {
+    getCount ({commit}, payload) {
       // const [bdcCont, zhswCount] = await Promise.all([
       //   axios.get('/service/fnmobile/bdcwaittask/getCount'),
       //   axios.get('/service/fnmobile/oawaittask/getCount')
       // ]);
       setTimeout(() => {
-        commit('reactActon');
+        commit('reactActon', payload);
       }, 2000)
     }
   }

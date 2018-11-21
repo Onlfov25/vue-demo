@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/home/Home.vue';
-import Qclc from './views/qclc/Qclc.vue';
+import Zhswsq from './views/zhswsq/Zhswsq.vue';
+import Qjsq from './views/zhswsq/components/Qjsq.vue';
 
 Vue.use(Router);
 
@@ -15,9 +16,14 @@ export default new Router({
       component: Home
     },
     {
-      path: '/qclc',
-      name: 'qclc',
-      component: Qclc
+      path: '/zhswsq',
+      name: 'zhswsq',
+      component: Zhswsq
+    },
+    {
+      path: '/qjsq',
+      name: 'qjsq',
+      component: Qjsq
     },
     {
       path: '/about',

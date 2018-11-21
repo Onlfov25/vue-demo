@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "fastclick": "^1.0.6",
+    "lodash": "^4.17.11",
     "qs": "^6.5.2",
     "vue": "^2.5.17",
     "vue-lazyload": "^1.2.6",
@@ -28,6 +29,8 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-vue": "^5.0.0-0",
+    "koa": "^2.6.2",
+    "mock": "^0.1.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vue-template-compiler": "^2.5.17"
@@ -44,10 +47,6 @@
       "airbnb-base"
     ],
     "rules": {
-      "linebreak-style": [
-        "error",
-        "windows"
-      ],
       "comma-dangle": [
         "error",
         "never"
