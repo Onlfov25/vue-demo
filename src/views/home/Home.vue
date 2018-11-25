@@ -1,14 +1,16 @@
 <template>
   <div class="home">
     <TopBar />
-    <div class="home-item bdc" >
+    <div class="home-item bdc" @click="addNum(3)">
       <span class="title">不动产业务</span>
       <span class="text"><i class="count-icon">{{bdcCount}}</i>条待审批</span>
     </div>
-    <div class="home-item zhsw" >
-      <span class="title">综合事务</span>
-      <span class="text"><i class="count-icon">{{zhswCount}}</i>条待审批</span>
-    </div>
+    <router-link :to="{name: 'zhswsp', query: {title: '综合事务审批'}}">
+      <div class="home-item zhsw" >
+        <span class="title">综合事务</span>
+        <span class="text"><i class="count-icon">{{zhswCount}}</i>条待审批</span>
+      </div>
+    </router-link>
     <router-link :to="{ path: 'zhswsq', query: { title: '发起流程' } }">
       <div class="home-item qclc">
         <span class="title">起草流程</span>
@@ -40,9 +42,13 @@ export default {
   },
   mounted() {
     // this.getCount();
+
   },
 
   methods: {
+    addNum(num) {
+      this.bdcCount += num;
+    }
     // async getCount () {
     //   console.log(bdcCont, zhswCount);
     // },

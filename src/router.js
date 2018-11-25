@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Home from './views/home/Home.vue';
 import Zhswsq from './views/zhswsq/Zhswsq.vue';
 import Qjsq from './views/zhswsq/components/Qjsq.vue';
+import Zhswsp from './views/zhswsp/Zhswsp.vue';
 
 Vue.use(Router);
 
@@ -24,6 +25,11 @@ export default new Router({
       path: '/qjsq',
       name: 'qjsq',
       component: Qjsq
+    },
+    {
+      path: '/zhswsp',
+      name: 'zhswsp',
+      component: Zhswsp
     },
     {
       path: '/about',
